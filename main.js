@@ -5,6 +5,8 @@
 
 // Cache each button, attach event listener to trigger imgToggle
 
+
+//  Longer Version
 var fry = document.querySelector('button.fry');
 fry.addEventListener('click', imgToggle);
 
@@ -27,5 +29,26 @@ function imgToggle(e) {
 	} else {
 		// add it
 		pic.classList.add('isHidden');
+	}
+}
+
+// More optimized version using a loop
+
+const characters = ['Fry', 'Leela', 'Bender', 'Professor', 'Amy', 'Zapp', 'Zoidberg', 'Mom'];
+
+const btns = document.querySelectorAll('button');
+	for (btn of btns) {
+	btn.addEventListener('click', imgToggle);
+}
+function imgToggle(e) {
+	var pic = document.getElementById( this.className );
+
+	// check to see if the element has a class of 'isHidden'
+	if (pic.classList.contains('isHidden')) {
+		// remove it
+		pic.classList.remove('isHidden');
+	} else {
+		// add it
+		pic.classList.add('isHidden');		
 	}
 }
